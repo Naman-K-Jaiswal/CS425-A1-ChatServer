@@ -187,7 +187,7 @@ The server efficiently processes and executes commands sent by clients using an 
 
 ## Code Flow
 
-![Server Architecture Diagram](https://drive.google.com/file/d/1c9_6X2Dkd4UWAD1xAsA2ate9W3GuLNmt/view?usp=sharing)
+![Server Architecture Diagram](https://drive.google.com/uc?export=view&id=1c9_6X2Dkd4UWAD1xAsA2ate9W3GuLNmt)
 
 ### 1. Initialization (main):
 
