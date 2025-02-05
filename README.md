@@ -276,10 +276,11 @@ Each of these tests was executed to validate the correctness of the server's fun
 
 
 ## Restrictions in the Server
-- **Maximum Clients:** X clients.
-- **Maximum Groups:** Y groups.
-- **Maximum Members per Group:** Z members.
-- **Maximum Message Size:** N bytes.
+
+- Maximum Clients: No explicit limit, but constrained by system resources and listen(server_fd, 10), which queues up to 10 pending connections.
+- Maximum Groups: No explicit limit, but constrained by unordered_map<string, set<int>> groups;. Limited by available memory.
+- Maximum Members per Group: No explicit limit, but effectively constrained by std::set<int>, which stores client sockets per group.
+- Maximum Message Size: 1024 bytes (defined by #define BUFFER_SIZE 1024 and used in char buffer[BUFFER_SIZE];).
 
 ---
 
@@ -319,7 +320,6 @@ While the current implementation meets the assignment requirements, there are se
      - Integrate a database (such as MySQL, PostgreSQL, or even a NoSQL option like MongoDB) to persist chat messages.
      - Implement message retrieval features so that users can view past conversations even after long periods, which is essential for a practical, real-world chat application.
 
-
 ---
 
 ## Team Contribution
@@ -333,7 +333,6 @@ Contributions: The project was a collaborative effort, with each team member con
 - [Neural Nine](https://www.youtube.com/watch?v=3UOyky9sEQY&t=247s)
 - [CS425 Github Repository](https://github.com/privacy-iitk/cs425-2025)
 
-
 ---
 
 ## Declaration
@@ -343,3 +342,5 @@ We hereby declare that this assignment was completed independently and did not i
 
 ## Feedback
 None
+
+---
